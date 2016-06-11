@@ -31,7 +31,14 @@
 	</xsl:template>
 
 	<xsl:template match="chDesc/head/issued/issueDate/date">
-		<date><xsl:value-of select="."/></date>
+		<date>
+		<xsl:if test="@value != ''">
+			<xsl:attribute name="value">
+				<xsl:value-of select="@value"/>
+			</xsl:attribute>
+		</xsl:if>
+		<xsl:value-of select="."/>
+		</date>
 	</xsl:template>
 
 	<xsl:template match="chDesc/head/issued/issuePlace/placeName">
