@@ -14,7 +14,7 @@
         indent="yes"
     />
 
-	<xsl:template match="list">
+	<xsl:template match="/list">
 		<list>
 			<xsl:apply-templates/>
 		</list>
