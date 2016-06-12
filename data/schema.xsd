@@ -5,17 +5,17 @@
   <xsd:complexType>
     <xsd:sequence>
       <xsd:element name="document" type="documentType" maxOccurs="unbounded" >
-		 <xsd:complexType name="documentType">
-		  <xsd:sequence>
-		    <xsd:element name="title" type="xs:string"/>
-     		 <xsd:element name="date" type="xs:date"/>
-        	 <xsd:element name="place" type="xs:string"/>   
-          <xsd:element name="issuer" type="xs:string"/>   
-          <xsd:element name="abstract" type="xs:string"/>
+	<xsd:complexType name="documentType">
+	 <xsd:sequence>
+	   <xsd:element name="title" type="xs:string"/>
+           <xsd:element name="date" type="xs:date"/>
+           <xsd:element name="place" type="xs:string"/>   
+           <xsd:element name="issuer" type="xs:string"/>   
+           <xsd:element name="abstract" type="xs:string"/>
         </xsd:sequence>
        </xsd:complexType>
      </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-</xsd:element>
+ </xsd:element>
 </xsd:schema>
