@@ -53,6 +53,10 @@
 		<abstract><xsl:value-of select="."/></abstract>
 	</xsl:template>
 
+	<xsl:template match="chDesc/div/list/item/ref">
+		<resource><xsl:value-of select="@target"/></resource>
+	</xsl:template>
+
 	<xsl:template match="text()|@*">
 	</xsl:template>	
 
