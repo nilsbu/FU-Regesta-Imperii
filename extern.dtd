@@ -5,3 +5,4 @@
 <!ELEMENT place (#PCDATA)>
 <!ELEMENT issuer (#PCDATA)>
 <!ELEMENT abstract (#PCDATA)>
+<!ELEMENT resource (#PCDATA)>
