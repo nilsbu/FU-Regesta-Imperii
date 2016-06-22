@@ -1,0 +1,40 @@
+    <?php include_once 'base.html' ?>
+
+
+<main>
+    <section class="home-page">
+        <?php include_once 'header.html' ?>
+
+        <div class="container">
+            <header class="row home-page-title-header">
+                <div class="col-md-12">
+                    <h1>Irgend ein Titel der hier perfekt passt</h1>
+                    <h2>Eine kleine Beschreibung zum Ttiel</h2>
+                </div>
+            </header>
+
+                <div class="row search-area">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Beispiel : asdasds" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-control">
+                        <option value="Bitte wählen Sie...">Bitte wählen Sie...</option>
+                        <option value="Titel">Titel</option>
+                        <option value="Ort">Ort</option>
+                        <option value="Autor">Autor</option>
+                        <option value="Datum">Datum</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn search-btn" type="submit">Jetzt Suchen!</button>
+                </div>
+            </div>
+        </div>
+        <?php include_once 'footer.html' ?>
+
+    </section>
+</main>
