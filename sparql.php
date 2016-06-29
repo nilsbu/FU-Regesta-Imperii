@@ -8,16 +8,21 @@ if (!$db) {
 }
 sparql_ns("foaf", "http://xmlns.com/foaf/0.1/");
 
-$person = "<http://dbpedia.org/resource/Frederick_the_Great>";
+$person = "<http://dbpedia.org/resource/Louis_the_German>";
 
-$sparql = "SELECT ?house ?birthDate ?birthPlace ?deathDate ?deathPlace ?abstract
-where { " . $person . " dbp:house ?house.
-" . $person . " dbo:birthDate ?birthDate.
-" . $person . " dbo:deathDate ?deathDate.
-" . $person . " dbo:deathPlace ?deathPlace.
-" . $person . " dbo:abstract ?abstract.
+$sparql = "SELECT ?birthDate ?birthYear ?birthPlace ?house ?deathDate ?deathYear ?deathPlace ?abstract  
+where { 
+OPTIONAL {" . $person . " dbp:house ?house.}
+OPTIONAL {" . $person . " dbo:birthDate ?birthDate.}
+OPTIONAL {" . $person . " dbp:birthDate ?birthDate.}
+OPTIONAL {" . $person . " dbo:birthYear ?birthYear.}
+OPTIONAL {" . $person . " dbp:birthPlace ?birthPlace.}
+OPTIONAL {" . $person . " dbo:deathDate ?deathDate.}
+OPTIONAL {" . $person . " dbp:deathDate ?deathDate.}
+OPTIONAL {" . $person . " dbo:deathYear ?deathYear.}
+OPTIONAL {" . $person . " dbo:deathPlace ?deathPlace.}
+OPTIONAL {" . $person . " dbo:abstract ?abstract.}
 
-" . $person . " dbp:birthPlace ?birthPlace
 
 FILTER (lang(?abstract) = 'en')
 
@@ -37,7 +42,7 @@ while ($row = sparql_fetch_array($result)) {
         print "<h3>$field</h3>";
         if (strpos($row[$field], 'resource') !== false && strpos($row[$field], 'http://') !== false) {
             $sparql_label = "SELECT ?label
-where { <" . $row[$field] . "> <http://www.w3.org/2000/01/rdf-schema#label> ?label FILTER (lang(?label) = 'en') }";
+where { <" . $row[$field] . "> <http://www.w3.org/2000/01/rdf-schema#label> ?label FILTER (lang(?label) = 'de') }";
             $result_label = sparql_query($sparql_label);
             if (!$result_label) {
                 print sparql_errno() . ": " . sparql_error() . "\n";
