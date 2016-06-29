@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="list">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="document" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="title" type="xsd:string"/>
+              <xsd:element name="date">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:string">
+                      <xsd:attribute name="value" type="xsd:string"/>
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="place" type="xsd:string" minOccurs="0"/>   
+              <xsd:element name="issuer" type="xsd:string"/>   
+              <xsd:element name="abstract" type="xsd:string"/>
+              <xsd:element name="resource" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

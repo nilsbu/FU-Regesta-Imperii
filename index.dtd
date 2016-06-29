@@ -1,0 +1,8 @@
+<!ELEMENT List (document+)>
+<!ELEMENT document (title, date, place?, issuer, abstract)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT place (#PCDATA)>
+<!ELEMENT issuer (#PCDATA)>
+<!ELEMENT abstract (#PCDATA)>
+<!ELEMENT resource (#PCDATA)>
