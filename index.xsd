@@ -21,7 +21,7 @@
                 <xsd:complexType>
                   <xsd:simpleContent>
                     <xsd:extension base="xsd:string">
-                      <xsd:attribute name="resource" type="xsd:string"/>
+                      <xsd:attribute name="resource" type="xsd:anyURI"/>
                     </xsd:extension>
                   </xsd:simpleContent>
                 </xsd:complexType>
