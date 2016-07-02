@@ -5,10 +5,10 @@ html {
 }
 
 body {
-	 text-align: center;
+    text-align: center;
     height: 100%;
-	 background-image: url('./img/landscape.jpg');
-	 background-position: top;
+    background-image: url('./img/landscape.jpg');
+    background-position: top;
     background-repeat: no-repeat;
     background-origin: content-box;
 }
@@ -29,7 +29,7 @@ body {
 }
 
 .item address {
-	 padding: 20px;
+    padding: 20px;
     text-align: left;    
     border: 1px solid lightgray;
     border-radius: 8px;
