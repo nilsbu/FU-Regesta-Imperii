@@ -17,7 +17,7 @@
                 </xsd:complexType>
               </xsd:element>
               <xsd:element name="place" type="xsd:string" minOccurs="0"/>   
-              <xsd:element name="issuer" type="xsd:string">
+              <xsd:element name="issuer">
                 <xsd:complexType>
                   <xsd:simpleContent>
                     <xsd:extension base="xsd:string">
