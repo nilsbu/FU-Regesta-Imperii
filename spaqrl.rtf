@@ -1,0 +1,68 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+select distinct ?abstract\
+where \{\
+<http://dbpedia.org/resource/Charlemagne> dbo:abstract ?abstract\
+\
+\}\
+\
+select distinct ?birthDate\
+where \{\
+<http://dbpedia.org/resource/Charlemagne> dbo:birthDate ?birthDate\
+\
+\} \
+\
+select distinct ?birthPlace\
+where \{\
+<http://dbpedia.org/resource/Charlemagne> dbo:birthPlace ?birthPlace\
+\
+\} \
+\
+select distinct ?deathDate\
+where \{\
+<http://dbpedia.org/resource/Charlemagne> dbo:deathDate ?deathDate\
+\
+\} \
+\
+select distinct ?deathPlace\
+where \{\
+<http://dbpedia.org/resource/Charlemagne> dbo:deathPlace ?deathPlace\
+\
+\} \
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+Dieses Beispiel bezieht auf ein \
+Alles als eine Abfrage:\
+\
+PREFIX z:<http://dbpedia.org/resource/Charlemagne> \
+\
+select  ?birthDate ?birthPlace ?deathDate ?deathPlace ?abstract\
+where \{\
+\
+z: dbo:birthDate ?birthDate.\
+z: dbp:birthPlace ?birthPlace.\
+z: dbo:deathDate ?deathDate.\
+z: dbo:deathPlace ?deathPlace.\
+z: dbo:abstract ?abstract.\
+\
+FILTER (lang(?abstract) = 'de')\
+\
+\} LIMIT 1\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}

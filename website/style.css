@@ -1,0 +1,78 @@
+
+
+.nav-header {
+    /*background-color: transparent !important;*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.nav-header span{
+    font-size: 30px;
+    font-family: "Open Sans", sans-serif;
+    color: #1ab5c1;;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.nav-header  .logo{
+    width: 200px;
+}
+
+.home-page{
+    background: url("File/landscape.jpg");
+}
+
+.home-page-title-header{
+    text-align: center;
+    margin-top: 100px;
+    color: #ffffff;
+}
+
+.search-area {
+    margin-top: 60px;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-bottom: 360px;
+}
+
+#basic-addon1{
+    background-color: #1ab5c1;
+    color: #ffffff;
+}
+
+.search-btn{
+    width: 100%;
+    background-color: #1ab5c1;
+    color: #ffffff;
+}
+
+.search-type-area{
+    margin-top: 50px;
+
+}
+
+
+footer{
+    background-color: rgba(0,0,0,0.5);
+    height: 35px;
+}
+
+.panel{
+    margin-top: 100px;
+    border: 1px solid #ddd !important;
+    margin-bottom: 300px !important;
+}
+
+.panel-header{
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #ddd;
+    padding: 7px 15px;
+}
+
+.table {
+    border-collapse: separate ;
+}
+
+.table i{
+    color: #1ab5c1;
+}
