@@ -1,9 +1,18 @@
+body{
+    background: url("File/landscape.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 
 .nav-header {
     /*background-color: transparent !important;*/
     padding-top: 20px;
     padding-bottom: 20px;
+    border-bottom: 1px solid #ffffff;
+
 }
 
 .nav-header span{
@@ -18,13 +27,9 @@
     width: 200px;
 }
 
-.home-page{
-    background: url("File/landscape.jpg");
-}
-
 .home-page-title-header{
     text-align: center;
-    margin-top: 100px;
+    margin-top: 200px;
     color: #ffffff;
 }
 
@@ -32,7 +37,6 @@
     margin-top: 60px;
     padding-right: 50px;
     padding-left: 50px;
-    margin-bottom: 360px;
 }
 
 #basic-addon1{
@@ -51,16 +55,8 @@
 
 }
 
-
-footer{
-    background-color: rgba(0,0,0,0.5);
-    height: 35px;
-}
-
 .panel{
-    margin-top: 100px;
     border: 1px solid #ddd !important;
-    margin-bottom: 300px !important;
 }
 
 .panel-header{
@@ -75,4 +71,9 @@ footer{
 
 .table i{
     color: #1ab5c1;
+}
+
+.ndf{
+    color: red;
+    font-weight: bold;
 }
