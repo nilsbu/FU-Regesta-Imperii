@@ -49,7 +49,7 @@
       <input class="button-primary" value="Submit" type="submit">
     </form>
 <?php
-$xml = simplexml_load_file("index_crop.xml");
+$xml = simplexml_load_file("index_full.xml");
 
 //echo '<p>You searched for ',$_POST['SearchInput'],' with type ',$_POST['SearchType'],'.','</p>';
 
