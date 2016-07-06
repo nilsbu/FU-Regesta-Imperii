@@ -2,24 +2,25 @@ import xml.etree.ElementTree as ET
 from SPARQLWrapper import SPARQLWrapper, JSON
 import json
 import operator
+from subprocess import call
 
 sparql = SPARQLWrapper("http://dbpedia.org/sparql")
 
 names = {}
-print('load file...')
-tree = ET.parse('data/full.xml')
-root = tree.getroot()
-
 multiple = []
 
-print('extract issuers...')
-for child in root:
-	if(child.find('issuer') is None):
+
+print('extract names (xquery)...')
+call(["./run_xquery.sh", ""])
+
+print('read issuers...')
+namesTree = ET.parse('data/names.xml')
+namesRoot = namesTree.getroot()
+for child in namesRoot:
+	if(child.text is None):
 		continue
 
-	text = child.find('issuer').text
-	if text not in names:
-		names[text] = -1
+	names[child.text] = -1
 
 for name in names.keys():
 	if name is None or name.find('\n') > -1:
@@ -58,6 +59,9 @@ for child in mroot:
 	names[child.text] = 'http://dbpedia.org/resource/' + child.get('resource')
 
 print('write resource ids...')
+tree = ET.parse('data/index_full.xml')
+root = tree.getroot()
+
 for child in tree.getroot():
 	if(child.find('issuer') is None):
 		continue
@@ -73,3 +77,5 @@ print()
 print('not unique:')
 for name in multiple:
 	print(name)
+
+call(["rm", "data/names.xml"])
