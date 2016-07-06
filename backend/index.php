@@ -49,7 +49,7 @@
       <input class="button-primary" value="Submit" type="submit">
     </form>
 <?php
-$xml = simplexml_load_file("index_full.xml");
+$xml = simplexml_load_file("index_test.xml");
 
 //echo '<p>You searched for ',$_POST['SearchInput'],' with type ',$_POST['SearchType'],'.','</p>';
 
@@ -267,9 +267,11 @@ if ($result > 0) {
                '<br><b>date:</b> ',$document[$num]->date,
                '<br><b>place:</b> ',$document[$num]->place,
                '<br><b>issuer:</b> ',$document[$num]->issuer,
-               '<br><b>abstract:</b> ',$document[$num]->abstract,
-               '<br><b>resource:</b> <a href="',$document[$num]->resource,'" target="_blank">',$document[$num]->resource,'</a>',
-               '</p>';
+               '<br><b>abstract:</b> ',$document[$num]->abstract;
+        foreach($document[$num]->resource as $res) {
+            echo '<br><b>resource:</b> <a href="',$document[$num]->resource,'" target="_blank">',$res,'</a>';
+        }
+        echo '</p>';
         if ($pos % 5 == 4) {
             echo '</section>';
         }
