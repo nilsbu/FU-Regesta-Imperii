@@ -269,7 +269,7 @@ if ($result > 0) {
                '<br><b>issuer:</b> ',$document[$num]->issuer,
                '<br><b>abstract:</b> ',$document[$num]->abstract;
         foreach($document[$num]->resource as $res) {
-            echo '<br><b>resource:</b> <a href="',$document[$num]->resource,'" target="_blank">',$res,'</a>';
+            echo '<br><b>resource:</b> <a href="',$res,'" target="_blank">',$res,'</a>';
         }
         echo '</p>';
         if ($pos % 5 == 4) {
