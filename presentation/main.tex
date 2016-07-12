@@ -289,21 +289,30 @@ foreach ($document as $node) {
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{SPARQL}	% remove [fragile] if no listing
-%% TODO frame %%
-  Something for XQuery
+\begin{frame}[fragile]{SPARQL}
+  We used SPARQL to retrieve information about Johann Friedrich Böhmer from DBpedia.
   \begin{itemize}
     \item
-      Foobar Foobar
-    \item
-      some code?
+      founder of Regesta Imperii
   \end{itemize}
   \vspace{10 mm}
-  Result?
-  \begin{itemize}
-    \item
-      something else
-  \end{itemize}
+  Via PHP:
+  \begin{lstlisting}[language=PHP]
+$person = "<http://dbpedia.org/resource/Johann_Friedrich_Böhmer>";
+
+$sparql = "SELECT ?birthDate ?deathDate ?abstract WHERE {
+
+    OPTIONAL {" . $person . " dbo:birthDate ?birthDate.}
+    OPTIONAL {" . $person . " dbp:birthDate ?birthDate.}
+    OPTIONAL {" . $person . " dbo:deathDate ?deathDate.}
+    OPTIONAL {" . $person . " dbp:deathDate ?deathDate.}
+    OPTIONAL {" . $person . " dbo:abstract ?abstract.}
+    
+    FILTER (lang(?abstract) = 'en')
+
+} LIMIT 1";
+
+  \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Web Services}
