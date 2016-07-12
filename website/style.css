@@ -4,6 +4,7 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    height: 100%;
 }
 
 
@@ -12,7 +13,6 @@ body{
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ffffff;
-
 }
 
 .nav-header span{
@@ -23,9 +23,6 @@ body{
     font-style: italic;
 }
 
-.nav-header  .logo{
-    width: 200px;
-}
 
 .home-page-title-header{
     text-align: center;
@@ -75,5 +72,57 @@ body{
 
 .ndf{
     color: red;
+    font-weight: bold;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    color: white !important;
+    height: 30px;
+    padding-top: 5px;
+}
+
+footer a{
+    color: white !important;
+    padding-left: 50px;
+}
+
+
+.item .wrapper {
+    background: linear-gradient(rgba(255,255,255,0.95), rgba(221,221,221,0.95));
+    border: 1px solid rgb(133,133,133);
+    border-radius: 10px;
+    font-size: 25px;
+    color: gray;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(81, 203, 238, 1);
+    max-width: 800px;
+    /*max-height: 90%;*/
+    max-height: auto;
+    margin: 2% auto;
+    overflow: auto;
+}
+
+.item .wrapper h1{
+    text-align: center;
+    font-size:25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+
+}
+
+.item address {
+    padding: 20px;
+    text-align: left;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.vcard .givenName,
+.vcard .familyName {
     font-weight: bold;
 }

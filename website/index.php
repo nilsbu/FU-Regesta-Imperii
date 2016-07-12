@@ -123,27 +123,32 @@ if ($result > 0) {
     '<div class="container">
         <div class="row">
             <div class="row">
-            <div class="col-md-12">
-                <div class="panel">
-                    <div class="panel-header">SUCHERGEBNIS</div>
-                        <div class="panel-body">
-                            <table class="table table-striped">
-                            <tbody>
-                                 <tr>
-                                    <td><i class="fa fa-search"></i> </td>
-                                    <td><strong>Sie haben gesucht nach </strong></td>
-                                    <td> Title: ',$_POST["TitleInput"],', Datum: ', $_POST["DateInput"],', Ort: ' ,$_POST["PlaceInput"], ', Herausgeber: ',$_POST["IssuerInput"],  '  </td>
-                                <tr>
-                                    <td><i class="fa fa-sort-numeric-asc"></i></td>
-                                    <td><strong>Gefundene Dokumente</strong></td>
-                                    <td>',count($elemS),'</td>
-                                </tr>
-                            </tbody>
-                            </table>
-                        <div>
+                <div class="col-md-12">'
+                ,require_once 'sparql.php',
+                '</div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel">
+                        <div class="panel-header">SUCHERGEBNIS</div>
+                            <div class="panel-body">
+                                <table class="table table-striped">
+                                <tbody>
+                                     <tr>
+                                        <td><i class="fa fa-search"></i> </td>
+                                        <td><strong>Sie haben gesucht nach </strong></td>
+                                        <td> Title: ',$_POST["TitleInput"],', Datum: ', $_POST["DateInput"],', Ort: ' ,$_POST["PlaceInput"], ', Herausgeber: ',$_POST["IssuerInput"],  '  </td>
+                                    <tr>
+                                        <td><i class="fa fa-sort-numeric-asc"></i></td>
+                                        <td><strong>Gefundene Dokumente</strong></td>
+                                        <td>',count($elemS),'</td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                            <div>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     ';
@@ -188,9 +193,12 @@ if ($result > 0) {
                                 </tr>
                                 <tr>
                                     <td><i class="fa fa-external-link"></i></td>
-                                    <td>Ressource</td>
-                                    <td> <a href="',$document[$num]->resource, '" target="_blank">',$document[$num]->resource,'</td>
-                                </tr>
+                                    <td>Ressource</td>';
+                                    foreach($document[$num]->resource as $res) {
+                                        echo '<td> <a href="',$document[$num]->resource, '" target="_blank">',$document[$num]->resource,'</td>' ;
+                                    }
+                                echo
+                                '</tr>
                                 </tbody>
                             </table>
                         </div>
@@ -224,5 +232,9 @@ if ($result > 0) {
 
 unset($document);
 unset($pos);
+
+
+
+
 
 ?>

@@ -6,21 +6,22 @@ if (!$db) {
     print sparql_errno() . ": " . sparql_error() . "\n";
     exit;
 }
+
 sparql_ns("foaf", "http://xmlns.com/foaf/0.1/");
 
-$person = "<http://dbpedia.org/resource/Louis_the_German>";
+$person = "<http://dbpedia.org/resource/Johann_Friedrich_Böhmer>";
 
-$sparql = "SELECT ?birthDate ?birthYear ?birthPlace ?house ?deathDate ?deathYear ?deathPlace ?abstract  
-where { 
-OPTIONAL {" . $person . " dbp:house ?house.}
+$sparql = "SELECT ?birthDate ?birthYear   ?deathDate ?deathYear  ?abstract
+where {
+
 OPTIONAL {" . $person . " dbo:birthDate ?birthDate.}
 OPTIONAL {" . $person . " dbp:birthDate ?birthDate.}
 OPTIONAL {" . $person . " dbo:birthYear ?birthYear.}
-OPTIONAL {" . $person . " dbp:birthPlace ?birthPlace.}
+
 OPTIONAL {" . $person . " dbo:deathDate ?deathDate.}
 OPTIONAL {" . $person . " dbp:deathDate ?deathDate.}
 OPTIONAL {" . $person . " dbo:deathYear ?deathYear.}
-OPTIONAL {" . $person . " dbo:deathPlace ?deathPlace.}
+
 OPTIONAL {" . $person . " dbo:abstract ?abstract.}
 
 
@@ -35,8 +36,7 @@ if (!$result) {
 
 $fields = sparql_field_array($result);
 
-print "<p>Number of rows: " . sparql_num_rows($result) . " results.</p>";
-print "<div>";
+echo '<div>';
 while ($row = sparql_fetch_array($result)) {
     foreach ($fields as $field) {
         print "<h3>$field</h3>";
@@ -48,7 +48,7 @@ where { <" . $row[$field] . "> <http://www.w3.org/2000/01/rdf-schema#label> ?lab
                 print sparql_errno() . ": " . sparql_error() . "\n";
                 exit;
             }
-            
+
             $fields_label = sparql_field_array($result_label);
             while ($row_label = sparql_fetch_array($result_label)) {
                 foreach ($fields_label as $field_label) {
@@ -58,7 +58,7 @@ where { <" . $row[$field] . "> <http://www.w3.org/2000/01/rdf-schema#label> ?lab
         } else {
             print "<p>$row[$field]</p>";
         }
-        
+
     }
 }
 print "</div>";
