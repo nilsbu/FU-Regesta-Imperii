@@ -1,1 +1,4 @@
 
+Dieses Projekt verwendet den Datensatz „Regesta Imperii“, der im Rahmen des Coding Da V1nc1
+Kultur-Hackaton gestellt wurde. Für die Umsetzung des Projektes wurde ein Monat Zeit gewährt.  Regesta Imperii ist ein Verzeichnis der Dokumente von Kaiser des Heiligen Römischen Reiches und Päpste des Mittelalters in Zeitraum von 800 bis 1500.
+Wir haben eine Seite gebaut, wo man nach Titel, Jahr, Aussteller und nach dem Ort suchen kann. Als eine Ergebnis  kriegen wir dann, je nachdem, was man sucht, die wichtigsten Informationen dazu, eine kürze Zusammenfassung und ein oder mehrere Resourcen, wo man mehr nachlesen könnte. Die biografischen Informationen zum Herausgeber werden  aus Dbpedia ausgelesen.
