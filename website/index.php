@@ -14,8 +14,19 @@ function loadBio(dbpedia) {
     
     parser = new DOMParser();
     xmlDoc = parser.parseFromString(xhttp.responseText, "text/xml");
-    document.getElementById("divCheckbox").style="";
-    document.getElementById("XXX").innerHTML="Bla";
+    xmlDoc = xmlDoc.children[0].children;
+    document.getElementById("bioBox").style="";
+
+    string = '<table class="table table-striped"><tbody>';
+    for(i = 0; i < xmlDoc.length; i++){
+        string += '<tr>'
+        string += '<td><strong>' + xmlDoc[i].tagName + '</strong></td>';
+        string += '<td><strong>' + xmlDoc[i].textContent + '</strong></td>';
+        string += '</tr>'
+    }
+    string += '</tbody></table>';
+
+    document.getElementById("bioContent").innerHTML=string;
 }
 </script>
 
@@ -141,13 +152,13 @@ if ($result > 0) {
     echo require_once 'base.html',
     '<section class="search-site">'
     ,require_once 'header.html',
-    '<div lass="container" id="divCheckbox" style="visibility: hidden;">
+    '<div lass="container" id="bioBox" style="visibility: hidden;">
         <div class="row">
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-header">SUCHERGEBNIS</div>
-                            <div class="panel-body" id="XXX">
+                            <div class="panel-body" id="bioContent">
                                 XX
                             </div>
                         </div>
