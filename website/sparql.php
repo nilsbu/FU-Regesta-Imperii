@@ -9,7 +9,7 @@ if (!$db) {
 
 sparql_ns("foaf", "http://xmlns.com/foaf/0.1/");
 
-$person = "<http://dbpedia.org/resource/Johann_Friedrich_Böhmer>";
+$person = "<" . $_GET["url"] . ">";
 
 $sparql = "SELECT ?birthDate ?birthYear   ?deathDate ?deathYear  ?abstract
 where {
@@ -30,35 +30,35 @@ FILTER (lang(?abstract) = 'en')
 } LIMIT 1";
 $result = sparql_query($sparql);
 if (!$result) {
-    print sparql_errno() . ": " . sparql_error() . "\n";
+    echo sparql_errno() . ": " . sparql_error() . "\n";
     exit;
 }
 
 $fields = sparql_field_array($result);
 
-echo '<div>';
+echo "<bio>";
 while ($row = sparql_fetch_array($result)) {
     foreach ($fields as $field) {
-        print "<h3>$field</h3>";
+        echo "<$field>";
         if (strpos($row[$field], 'resource') !== false && strpos($row[$field], 'http://') !== false) {
             $sparql_label = "SELECT ?label
 where { <" . $row[$field] . "> <http://www.w3.org/2000/01/rdf-schema#label> ?label FILTER (lang(?label) = 'de') }";
             $result_label = sparql_query($sparql_label);
             if (!$result_label) {
-                print sparql_errno() . ": " . sparql_error() . "\n";
+                //print sparql_errno() . ": " . sparql_error() . "\n";
                 exit;
             }
 
             $fields_label = sparql_field_array($result_label);
             while ($row_label = sparql_fetch_array($result_label)) {
                 foreach ($fields_label as $field_label) {
-                    print "<p>$row_label[$field_label]</p>";
+                    echo "</$field>$row_label[$field_label]<$field>";
                 }
             }
         } else {
-            print "<p>$row[$field]</p>";
+            echo $row[$field];
         }
-
+        echo "</$field>";
     }
 }
-print "</div>";
+echo "</bio>";

@@ -1,3 +1,22 @@
+<script>
+function loadBio(dbpedia) {
+    var xhttp;
+    if (window.XMLHttpRequest) {
+        xhttp = new XMLHttpRequest();
+        } else {
+        // code for IE6, IE5
+        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xhttp.open("GET", "sparql.php?url=" + encodeURIComponent(dbpedia), false);
+    //xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send();
+    
+    parser = new DOMParser();
+    xmlDoc = parser.parseFromString(xhttp.responseText, "text/xml");
+}
+</script>
+
 <?php
 $xml = simplexml_load_file("index_crop.xml");
 
@@ -123,11 +142,6 @@ if ($result > 0) {
     '<div class="container">
         <div class="row">
             <div class="row">
-                <div class="col-md-12">'
-                ,require_once 'sparql.php',
-                '</div>
-            </div>
-            <div class="row">
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-header">SUCHERGEBNIS</div>
@@ -184,7 +198,13 @@ if ($result > 0) {
                                 <tr>
                                     <td><i class="fa fa-user"></i></i></td>
                                     <td>Autor</td>
-                                    <td>' ,$document[$num]->issuer, '</td>
+                                    <td>';
+                                    if(isset($document[$num]->issuer['resource'])) {
+                                        echo '<a onclick="', "loadBio('", $document[$num]->issuer['resource'], "')", '">', $document[$num]->issuer, '</a>';
+                                    } else {
+                                        echo $document[$num]->issuer;
+                                    }
+                                    echo '</td>
                                 </tr>
                                 <tr>
                                     <td><i class="fa fa-file-text"></i></td>
@@ -232,9 +252,5 @@ if ($result > 0) {
 
 unset($document);
 unset($pos);
-
-
-
-
 
 ?>
